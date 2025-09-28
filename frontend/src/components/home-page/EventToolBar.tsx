@@ -58,16 +58,16 @@ const EventToolBar = () => {
     return (
         <Box mb={4}>
             <Stack spacing={2}>
-                <Stack direction="row" justifyContent="space-between" spacing={2}>
 
+                <Box>
                     <Button variant="contained" onClick={() => setOpen(true)}>Add Event</Button>
+                </Box>
 
-                </Stack>
 
                 {(events.length > 0 || activeFilter) && (
                     <Box>
                         <Typography variant="body1" mb={1}>Filter by category</Typography>
-                        <Stack direction="row" spacing={2} flexWrap={"wrap"}>
+                        <Stack direction="row" gap={2} flexWrap={"wrap"}>
 
                             {CATEGORIES?.map((cat, index) => (
                                 <Button
