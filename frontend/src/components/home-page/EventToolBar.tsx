@@ -15,7 +15,7 @@ const EventToolBar = () => {
     const [open, setOpen] = useState(false);
     const [activeFilter, setActiveFilter] = useState<string | null>(null);
 
-    const { events, setEvents, refreshEvents } =
+    const { events, setEvents, refreshEvents, setIsEventsLoading } =
         useEventContext();
 
 
@@ -37,6 +37,7 @@ const EventToolBar = () => {
         }
 
         try {
+            setIsEventsLoading(true);
             const response = await axios.get(`${API_BASE_URL}/event/get-events`, {
                 params: {
                     category: category,
@@ -47,7 +48,9 @@ const EventToolBar = () => {
             setActiveFilter(category);
         } catch (err) {
             console.error(err);
-
+            toast.error("Failed to filter events");
+        } finally {
+            setIsEventsLoading(false);
         }
 
     }
