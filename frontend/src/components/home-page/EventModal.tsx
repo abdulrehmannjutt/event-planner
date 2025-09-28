@@ -36,9 +36,6 @@ const EventModal = ({
         category: "",
     });
 
-    console.log("🚀 ~ EventModal ~ initialData:", initialData?.date)
-
-
     useEffect(() => {
         if (initialData) {
             setFormData(initialData);

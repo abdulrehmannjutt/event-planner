@@ -55,8 +55,6 @@ const EventToolBar = () => {
 
     }
 
-    console.log("🚀 ~ EventToolBar ~ events:", events.length > 0);
-    console.log("🚀 ~ EventToolBar ~ activeFilter:", activeFilter);
     return (
         <Box mb={4}>
             <Stack spacing={2}>
@@ -69,7 +67,7 @@ const EventToolBar = () => {
                 {(events.length > 0 || activeFilter) && (
                     <Box>
                         <Typography variant="body1" mb={1}>Filter by category</Typography>
-                        <Stack direction="row" spacing={2}>
+                        <Stack direction="row" spacing={2} flexWrap={"wrap"}>
 
                             {CATEGORIES?.map((cat, index) => (
                                 <Button
